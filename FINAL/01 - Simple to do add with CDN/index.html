@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDoVue - Version CDN</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h1>La super TODO D'ALEX</h1>
+    <ajout @nouvellenote="ajouterNote"></ajout>
+    <note v-for="todo in todos" v-bind:content="todo"></note>
+  </div>
+</body>
+<script>
+  const vm = Vue.createApp({
+    data() {
+      return {
+        todos: ["Alex", "Bolak", "Camille"]
+      }
+    },
+    methods: {
+      inverser() {
+        this.todos.reverse();
+      },
+      ajouterNote(message) {
+        this.todos.push(message);
+      }
+    }
+  })
+
+  vm.component('note', {
+    props: ['content'], // paramètre talbeau ici qui contient quelle données mon composant va recevoir
+    template: `<p> {{ content }} </p>`
+  })
+
+  vm.component('ajout', {
+    props: [],
+    emits: ['nouvellenote'],
+    data() {
+      return {
+        interne: 'Nouveau Message'
+      }
+    },
+    methods: {
+      enrgistrementNote() {
+        this.$emit('nouvellenote', this.interne);
+        this.interne = ''; // Emit va écouter un event personalisé avec unn paramètre interener 
+      }
+    },
+    template: `<input type="text" v-model="interne"/>
+    <a href="#" @click="enrgistrementNote" v-if=" interne != '' ">Ajouter</a>
+    {{interne}}
+    `
+
+  })
+
+  vm.mount('#app');
+</script>
+
+</html>

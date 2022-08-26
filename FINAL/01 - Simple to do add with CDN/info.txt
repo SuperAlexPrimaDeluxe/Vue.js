@@ -1,0 +1,33 @@
+  
+  // Notre Html est la partie design
+  // PARTIE LOGIQUE de l'APP
+  // *const vm est une Instance qui fait référence à une nouvelle instance de Vue qui prend le paramètre data
+  // Data est une fonction qui va retourner des données que l'on va manipuler aussi appeler état.
+  // v-bind va fournir un attribut de déclarer dans nos données tels que message dans la balise titre
+  // v-for c'est la boucle directive qui permet de boucler sur un maximum d'élement
+  // Methods va contenir toute les fonctions de mon instance en JS par exemple une inversion.
+  // this. fait référence à l'instancede vue.
+
+  // mon todos dans mes données étant un tableau nous pouvons utiliser la méthode reverse du Javascript
+
+  // Envoyer des données de l'interface vers le code 
+  
+  // Note est le nom que je donne à mon composant 
+
+   <!-- Mon composant NOTE va lier la props content, le v-bind permettant de faire le entre l'affichge et les données. Le V-FOR permet une boucle d'affichage  -->
+
+   Si j'enlève le v-bind ça mettra juste le contenu texte inseré dans la prop
+
+   v-bind = va chercher dans les données bon clebs
+
+   v-bind va chercher dans les datas
+
+     <!-- <p v-bind:title="message" v-for="todo in todos" @click="inverser">
+      {{ todo }} 
+    </p> -->
+
+
+            // todos: [
+        //   {id: 0, content: 'Tache 1'},
+        //   {id: 1, content: 'Tache 2'},
+        // ]
